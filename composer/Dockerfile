@@ -10,4 +10,6 @@ RUN apk update && apk add curl && \
     php -- --install-dir=/usr/bin/ --filename=composer
 
 COPY "./entrypoint.sh" "/entrypoint.sh"
-ENTRYPOINT ["/entrypoint.sh"]
+RUN [ "chmod", "+x", "/entrypoint.sh" ]
+
+ENTRYPOINT [ "/entrypoint.sh" ]
