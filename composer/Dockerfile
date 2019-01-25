@@ -1,4 +1,4 @@
-FROM php:7.3-fpm-alpine
+FROM php:7.2-fpm-alpine
 
 LABEL com.github.actions.name="GitHub Action for composer"
 LABEL com.github.actions.description="Wraps the composer CLI to enable common composer commands."
