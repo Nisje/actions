@@ -1,11 +1,11 @@
-FROM php:7.3-alpine
+FROM php:7.3-fpm-alpine
 
 LABEL com.github.actions.name="GitHub Action for composer"
 LABEL com.github.actions.description="Wraps the composer CLI to enable common composer commands."
 LABEL com.github.actions.icon="package"
 LABEL com.github.actions.color="red"
 
-RUN apk update && apk add curl && \
+RUN apk update && apk add curl && apk add --no-cache libpng libpng-dev && docker-php-ext-install gd && apk del libpng-dev && \
     curl -sS https://getcomposer.org/installer | \
     php -- --install-dir=/usr/bin/ --filename=composer
 
